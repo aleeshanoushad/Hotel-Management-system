@@ -1,0 +1,233 @@
+{
+  "info": {
+    "_postman_id": "13cf73b9-8be4-4420-9cd7-eb22d0285e94",
+    "name": "Laravel Mini Booking API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "11622235"
+  },
+  "item": [
+    {
+      "name": "API Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"password\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/login",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API Logout",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer 4|9KrEdRGXkoU0JgnpodtfllwxFcCXJHYNic1nxxmod466c4f5\n",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/logout",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "logout"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "List Hotels",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer  1|P07h2|FZFTdtMm2hHJpSCALnyJ2zVfjMwnIDtEOVqdFdQX98360b01\n",
+            "disabled": true
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/hotels",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "hotels"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Room",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer 2|FZFTdtMm2hHJpSCALnyJ2zVfjMwnIDtEOVqdFdQX98360b01"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"hotel_id\": 1,\n  \"name\": \"Deluxe Suite\",\n  \"price_per_night\": 199.99,\n  \"max_occupancy\": 3,\n  \"available_rooms\": 5\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/rooms",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "rooms"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Hotel",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "P07hI3dHH7tAl6nKLf44pvaZRGnKGC65gIxbaSTD66b6a11e",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer 2|FZFTdtMm2hHJpSCALnyJ2zVfjMwnIDtEOVqdFdQX98360b01"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Singleton\",\n  \"city\":3,\n  \"country\": 3,\n  \"rating\": 5,\n  \"description\": \"A beautiful Hotel to stay\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/hotels",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "hotels"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Search Availability",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/search?city=Chicago&checkin_date=2026-06-01&checkout_date=2026-06-04&guests=2",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "search"
+          ],
+          "query": [
+            {
+              "key": "city",
+              "value": "Chicago"
+            },
+            {
+              "key": "checkin_date",
+              "value": "2026-06-01"
+            },
+            {
+              "key": "checkout_date",
+              "value": "2026-06-04"
+            },
+            {
+              "key": "guests",
+              "value": "2"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": ""
+    }
+  ]
+}
