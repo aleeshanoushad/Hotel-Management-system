@@ -1,0 +1,113 @@
+{
+  "info": {
+    "name": "Laravel Mini Booking API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "API Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"password\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/login",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "login"
+          ]
+        }
+      }
+    },
+    {
+      "name": "List Hotels",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/hotels",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "hotels"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Room",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"hotel_id\": 1,\n  \"name\": \"Deluxe Suite\",\n  \"price_per_night\": 199.99,\n  \"max_occupancy\": 3,\n  \"available_rooms\": 5\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/rooms",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "rooms"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Search Availability",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/search?city=Chicago&checkin_date=2026-06-01&checkout_date=2026-06-04&guests=2",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "search"],
+          "query": [
+            { "key": "city", "value": "Chicago" },
+            { "key": "checkin_date", "value": "2026-06-01" },
+            { "key": "checkout_date", "value": "2026-06-04" },
+            { "key": "guests", "value": "2" }
+          ]
+        }
+      }
+    }
+  ]
+}
